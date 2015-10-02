@@ -167,11 +167,11 @@ public class FavouriteServerListFragment extends Fragment implements OnItemClick
 
 
         // if only one server => connect
-        int serverCount = servers.size();
+/*        int serverCount = servers.size();
 
         if (serverCount == 1){
             mConnectHandler.connectToServer((Server) mServerAdapter.getItem(0));
-        }
+        }*/
 
         /* if(getService() == null
                 || getService().getConnectionState() != JumbleService.STATE_CONNECTING){
