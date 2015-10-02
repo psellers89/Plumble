@@ -124,11 +124,22 @@ public class ServerEditFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.dialog_server_edit, null, false);
 
         TextView titleLabel = (TextView) view.findViewById(R.id.server_edit_name_title);
+
         mNameEdit = (EditText) view.findViewById(R.id.server_edit_name);
+        mNameEdit.setText("Gallica");
+        mNameEdit.setFocusable(false);
+
         mHostEdit = (EditText) view.findViewById(R.id.server_edit_host);
+        mHostEdit.setText("192.168.1.137");
+        mHostEdit.setFocusable(false);
+
         mPortEdit = (EditText) view.findViewById(R.id.server_edit_port);
+        mPortEdit.setText("64738");
+        mPortEdit.setFocusable(false);
+
         mUsernameEdit = (EditText) view.findViewById(R.id.server_edit_username);
         mUsernameEdit.setHint(settings.getDefaultUsername());
+
         mPasswordEdit = (EditText) view.findViewById(R.id.server_edit_password);
 
         Server oldServer = getServer();

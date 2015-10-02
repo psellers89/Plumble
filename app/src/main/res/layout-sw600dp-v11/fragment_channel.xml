@@ -55,7 +55,7 @@
         <LinearLayout
             android:id="@+id/pushtotalk_view"
             android:layout_width="match_parent"
-            android:layout_height="51dp"
+            android:layout_height="151dp"
             android:gravity="center_horizontal"
             android:orientation="vertical" >
 

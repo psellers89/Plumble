@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.morlunk.mumbleclient.app;
 
 import android.app.AlertDialog;
@@ -282,7 +283,7 @@ public class PlumbleActivity extends ActionBarActivity implements ListView.OnIte
             }
         };
 
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        /*mDrawerLayout.setDrawerListener(mDrawerToggle);*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -477,7 +478,13 @@ public class PlumbleActivity extends ActionBarActivity implements ListView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         mDrawerLayout.closeDrawers();
-        loadDrawerFragment((int) id);
+
+        if (id == 6){
+            //FAVORITES = do nothing...
+        } else {
+            loadDrawerFragment((int) id);
+        }
+        
     }
 
     /**

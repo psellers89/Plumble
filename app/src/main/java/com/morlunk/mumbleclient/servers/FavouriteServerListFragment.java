@@ -37,6 +37,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import android.widget.Toast;
+
 import com.morlunk.jumble.model.Server;
 import com.morlunk.mumbleclient.BuildConfig;
 import com.morlunk.mumbleclient.R;
@@ -115,10 +117,10 @@ public class FavouriteServerListFragment extends Fragment implements OnItemClick
             case R.id.menu_add_server_item:
                 addServer();
                 return true;
-            case R.id.menu_quick_connect:
+/*            case R.id.menu_quick_connect:
                 ServerEditFragment.createServerEditDialog(getActivity(), null, ServerEditFragment.Action.CONNECT_ACTION, true)
                         .show(getFragmentManager(), "serverInfo");
-                return true;
+                return true;*/
         }
         return super.onOptionsItemSelected(item);
     }
@@ -135,13 +137,13 @@ public class FavouriteServerListFragment extends Fragment implements OnItemClick
 
     public void shareServer(Server server) {
         // Build Mumble server URL
-        String serverUrl = "mumble://"+server.getHost()+":"+server.getPort()+"/";
+/*        String serverUrl = "mumble://"+server.getHost()+":"+server.getPort()+"/";
 
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.shareMessage, serverUrl));
         intent.setType("text/plain");
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
     public void deleteServer(final Server server) {
@@ -162,6 +164,20 @@ public class FavouriteServerListFragment extends Fragment implements OnItemClick
         List<Server> servers = getServers();
         mServerAdapter = new FavouriteServerAdapter(getActivity(), servers, this);
         mServerGrid.setAdapter(mServerAdapter);
+
+
+        // if only one server => connect
+        int serverCount = servers.size();
+
+        if (serverCount == 1){
+            mConnectHandler.connectToServer((Server) mServerAdapter.getItem(0));
+        }
+
+        /* if(getService() == null
+                || getService().getConnectionState() != JumbleService.STATE_CONNECTING){
+            Toast.makeText(getActivity(),"",Toast.LENGTH_SHORT).show();
+         }*/
+        
     }
 
 
@@ -174,6 +190,7 @@ public class FavouriteServerListFragment extends Fragment implements OnItemClick
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
         mConnectHandler.connectToServer((Server) mServerAdapter.getItem(arg2));
+        //Toast.makeText(getActivity(),"arg2 = " + arg2,Toast.LENGTH_SHORT).show();
     }
 
     public static interface ServerConnectHandler {

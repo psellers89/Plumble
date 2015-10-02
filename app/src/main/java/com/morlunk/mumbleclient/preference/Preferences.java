@@ -76,6 +76,7 @@ public class Preferences extends PreferenceActivity {
 
         // Legacy preference section handling
 
+
         String action = getIntent().getAction();
         if (action != null) {
             if (ACTION_PREFS_GENERAL.equals(action)) {
@@ -316,14 +317,14 @@ public class Preferences extends PreferenceActivity {
 
             String section = getArguments().getString("settings");
             if ("general".equals(section)) {
-                addPreferencesFromResource(R.xml.settings_general);
-                configureOrbotPreferences(getPreferenceScreen());
-            } else if ("authentication".equals(section)) {
+/*                addPreferencesFromResource(R.xml.settings_general);
+                configureOrbotPreferences(getPreferenceScreen());*/
+/*            } else if ("authentication".equals(section)) {
                 addPreferencesFromResource(R.xml.settings_authentication);
                 configureCertificatePreferences(getPreferenceScreen());
             } else if ("audio".equals(section)) {
                 addPreferencesFromResource(R.xml.settings_audio);
-                configureAudioPreferences(getPreferenceScreen());
+                configureAudioPreferences(getPreferenceScreen());*/
             } else if ("appearance".equals(section)) {
                 addPreferencesFromResource(R.xml.settings_appearance);
             } else if ("about".equals(section)) {

@@ -38,7 +38,7 @@
     <LinearLayout
         android:id="@+id/pushtotalk_view"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="150dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:background="?attr/colorPrimary">

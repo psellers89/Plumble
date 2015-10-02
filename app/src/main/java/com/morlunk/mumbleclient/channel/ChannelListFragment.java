@@ -198,8 +198,8 @@ public class ChannelListFragment extends JumbleServiceFragment implements OnChan
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        MenuItem muteItem = menu.findItem(R.id.menu_mute_button);
-        MenuItem deafenItem = menu.findItem(R.id.menu_deafen_button);
+        /*MenuItem muteItem = menu.findItem(R.id.menu_mute_button);
+        MenuItem deafenItem = menu.findItem(R.id.menu_deafen_button);*/
 
         try {
             if(getService() != null
@@ -209,30 +209,30 @@ public class ChannelListFragment extends JumbleServiceFragment implements OnChan
                 int foregroundColor = getActivity().getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimaryInverse}).getColor(0, -1);
 
                 IUser self = getService().getSessionUser();
-                muteItem.setIcon(self.isSelfMuted() ? R.drawable.ic_action_microphone_muted : R.drawable.ic_action_microphone);
+                /*muteItem.setIcon(self.isSelfMuted() ? R.drawable.ic_action_microphone_muted : R.drawable.ic_action_microphone);
                 deafenItem.setIcon(self.isSelfDeafened() ? R.drawable.ic_action_audio_muted : R.drawable.ic_action_audio);
                 muteItem.getIcon().mutate().setColorFilter(foregroundColor, PorterDuff.Mode.MULTIPLY);
-                deafenItem.getIcon().mutate().setColorFilter(foregroundColor, PorterDuff.Mode.MULTIPLY);
+                deafenItem.getIcon().mutate().setColorFilter(foregroundColor, PorterDuff.Mode.MULTIPLY);*/
             }
         } catch (RemoteException e) {
             e.printStackTrace();
         }
 
-        try {
+        /*try {
             if(getService() != null) {
                 MenuItem bluetoothItem = menu.findItem(R.id.menu_bluetooth);
                 bluetoothItem.setChecked(getService().usingBluetoothSco());
             }
         } catch (RemoteException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.fragment_channel_list, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.menu_search);
+        /*MenuItem searchItem = menu.findItem(R.id.menu_search);
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
 
         final SearchView searchView = (SearchView)MenuItemCompat.getActionView(searchItem);
@@ -267,13 +267,13 @@ public class ChannelListFragment extends JumbleServiceFragment implements OnChan
                 }
                 return false;
             }
-        });
+        });*/
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
+/*        switch (item.getItemId()) {
             case R.id.menu_mute_button:
                 try {
                     IUser self = getService().getSessionUser();
@@ -314,7 +314,7 @@ public class ChannelListFragment extends JumbleServiceFragment implements OnChan
                     e.printStackTrace();
                 }
                 return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

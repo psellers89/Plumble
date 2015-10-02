@@ -154,27 +154,30 @@ public class ChannelFragment extends JumbleServiceFragment implements SharedPref
                     .replace(R.id.chat_fragment, chatFragment)
                     .commit();
         }
+
+        Settings settings = Settings.getInstance(getActivity());
+        settings.setInputMethod(Settings.ARRAY_INPUT_METHOD_PTT);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.channel_menu, menu);
+        /*inflater.inflate(R.menu.channel_menu, menu);*/
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Settings settings = Settings.getInstance(getActivity());
         switch (item.getItemId()) {
-            case R.id.menu_input_voice:
+/*            case R.id.menu_input_voice:
                 settings.setInputMethod(Settings.ARRAY_INPUT_METHOD_VOICE);
-                return true;
+                return true;*/
             case R.id.menu_input_ptt:
                 settings.setInputMethod(Settings.ARRAY_INPUT_METHOD_PTT);
                 return true;
-            case R.id.menu_input_continuous:
+/*            case R.id.menu_input_continuous:
                 settings.setInputMethod(Settings.ARRAY_INPUT_METHOD_CONTINUOUS);
-                return true;
+                return true;*/
         }
         return super.onOptionsItemSelected(item);
     }
