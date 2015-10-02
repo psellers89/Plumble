@@ -27,7 +27,7 @@
     <string name="drawer_tokens">Access Tokens</string>
     <string name="drawer_pinned">Pinned Channels</string>
     <string name="drawer_header_servers">Servers</string>
-    <string name="drawer_favorites">Favorites</string>
+    <string name="drawer_favorites">Connect</string>
     <string name="drawer_lan">LAN</string>
     <string name="drawer_public">Public Servers</string>
 
@@ -122,7 +122,7 @@
     <string name="addFavorite">Add Favorite</string>
     <string name="removeFavorite">Remove Favorite</string>
     <string name="viewFavorites">View Favorites</string>
-    <string name="favorites">Favorites</string>
+    <string name="favorites">Connect</string>
     <string name="favoriteRemoved">Favorite removed.</string>
     <string name="favoriteAdded">Favorite added.</string>
     <string name="noFavorites">No favorited channels.</string>
